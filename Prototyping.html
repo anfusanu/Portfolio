@@ -1,0 +1,77 @@
+
+<script>
+
+    
+    function nameValid() {
+            var n = document.getElementById("name").length;
+            if (document.getElementById("name").value == "") {
+                document.getElementById("nameVal").style.display = "block";
+            }
+            else {
+                document.getElementById("nameVal").style.display = "none";
+            }
+        }
+        function emailValid() {
+            var email=document.getElementById("email").value;
+            if (email == "") {
+                document.getElementById("emailVal").style.display = "block";
+            } else {
+                if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
+                    return (true)
+                }
+                document.getElementById("emailVal").style.display = "block";
+                return (false)
+            }
+        }
+        function messageValid() {
+            if (document.getElementById("message").value == "") {
+                document.getElementById("messageVal").style.display = "block";
+            } else {
+                document.getElementById("messageVal").style.display = "none";
+            }
+        }
+    
+    
+    </script>
+
+    <input type="text" class="form-control contactFormItem" placeholder="Enter name"
+        name="name" required minlength="4"  pattern="[a-zA-Z\s]*" oninvalid="setCustomValidity('Min 4 character and Only enter Alphabets ')" >
+    <span id="nameVal" style="color: red; display: none; padding-top: .5rem;">Please enter your
+        name</span> 
+
+    <input type="email" class="form-control contactFormItem"
+        placeholder="Enter email" name="email" required>
+    <span id="emailVal" style="color: red; display: none; padding-top: .5rem;">Enter your email
+        id</span>
+    <textarea class="form-control contactFormItem" placeholder="Your Message"
+        name="message" rows="5" required></textarea>
+     <span id="messageVal" style="color: red; display: none; padding-top: .5rem;">Please leave a
+        message</span>
+
+
+
+
+
+
+
+
+<script>
+    $("#gform").submit((e) => {
+    e.preventDefault()
+    $.ajax({
+        // url: "https://script.google.com/macros/s/AKfycbySeW2XNhMSU9TASLz1cYIRsIYHaBdWWAEfxxSML4QkXxGNYXCimi-9VuD0mo-iF6ZA/exec",
+        data: $("#gform").serialize(),
+        method: "post",
+        success: function (response) {
+            alert("Form submitted successfully")
+            window.location.reload()
+            //window.location.href="https://google.com"
+        },
+        error: function (err) {
+            alert("Something Error")
+
+        }
+    })
+})
+
+</script>
