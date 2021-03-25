@@ -604,7 +604,7 @@
           <div class="col-md-6 form-group">
 
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required minlength="4"
-              pattern="[a-zA-Z\s]*" onblur="nameValid()">
+              pattern="[a-zA-Z\s]*" onblur="nameValid()" oninput="nameValid();" >
 
 
             <span id="nameReq" class="formValid">Field Required</span>
@@ -618,7 +618,7 @@
           <div class="col-md-6 form-group mt-3 mt-md-0">
 
             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required
-              onblur="emailValid()" class="formValid">
+              onblur="emailValid()" oninput="emailValid();">
 
             <span id="emailReq" class="formValid">Field Required</span>
             <span id="emailErr" class="formValid">Invalid email</span>
@@ -628,7 +628,7 @@
         <div class="form-group mt-3">
 
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required
-            minlength="10" onblur="subjectValid()" class="formValid">
+            minlength="10" onblur="subjectValid()" oninput="subjectValid();">
 
           <span id="subReq" class="formValid">Field Required</span>
           <span id="subLen" class="formValid">Minimum 10 characters
@@ -641,7 +641,7 @@
 
 
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required minlength="20"
-            id="message" onblur="messageValid()" class="formValid"></textarea>
+            id="message" onblur="messageValid()" oninput="messageValid();"></textarea>
 
           <span id="msgReq" class="formValid">Field Required</span>
           <span id="msgLen" class="formValid">Minimum 20 characters
